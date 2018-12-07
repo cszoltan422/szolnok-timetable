@@ -1,0 +1,19 @@
+{
+  "name": "szolnok-timetable-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.ts",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cszoltan422/szolnok-timetable-backend.git"
+  },
+  "author": "Zoltan Csenyi <cszoltan422@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cszoltan422/szolnok-timetable-backend/issues"
+  },
+  "homepage": "https://github.com/cszoltan422/szolnok-timetable-backend#readme"
+}
