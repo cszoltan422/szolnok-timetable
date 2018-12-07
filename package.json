@@ -4,7 +4,14 @@
   "description": "",
   "main": "src/app.ts",
   "scripts": {
-    "test": "test"
+    "start": "node dist/app.js",
+    "start:dev": "nodemon --exec node dist/app.js",
+    "start:ts": "ts-node src/app.ts",
+    "start:dev-ts": "nodemon --exec ts-node app/app.ts",
+    "build:analyze": "tslint -c tslint.json -p tsconfig.json",
+    "build:test": "jest --forceExit --coverage --verbose",
+    "build:compile": "tsc",
+    "build": "yarn build:compile && yarn build:analyze && yarn build:test"
   },
   "repository": {
     "type": "git",
@@ -15,5 +22,26 @@
   "bugs": {
     "url": "https://github.com/cszoltan422/szolnok-timetable-backend/issues"
   },
-  "homepage": "https://github.com/cszoltan422/szolnok-timetable-backend#readme"
+  "homepage": "https://github.com/cszoltan422/szolnok-timetable-backend#readme",
+
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.13.11",
+    "winston": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.11.1",
+    "@types/mongodb": "^3.0.5",
+    "@types/mongoose": "^4.7.34",
+    "@types/node": "^9.4.6",
+    "@types/supertest": "^2.0.4",
+    "chai": "^4.1.2",
+    "jest": "^22.0.4",
+    "nodemon": "^1.13.0",
+    "supertest": "^3.0.0",
+    "ts-jest": "^22.0.4",
+    "ts-node": "^5.0.0",
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.2"
+  }
 }
