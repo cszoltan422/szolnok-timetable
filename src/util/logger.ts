@@ -4,9 +4,14 @@ import moment from "moment";
 
 const timestampFormat = () => moment().format("YYYY-MM-DD hh:mm:ss").trim();
 
-const logformat = winston.format.printf((info: any) =>
-    `[${info.timestamp} | ${info.level.toUpperCase()} | ${info.message}]`
-);
+const logformat = winston.format.printf((info: any) => {
+    const logEntry = {
+        timestamp: info.timestamp,
+        level: info.level,
+        message: info.message
+    };
+    return JSON.stringify(logEntry);
+});
 
 const logger = winston.createLogger({
     level: "info",

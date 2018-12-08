@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import logger from "./util/logger";
+import busesRouter from "./controller/bus.controller";
 
 const username = process.env.MONGODB_USERNAME;
 const password = process.env.MONGODB_PASSWORD;
@@ -17,6 +18,14 @@ mongoose.connect(`mongodb://${username}:${password}@${host}:${mongoPort}/${db}`)
 );
 
 const app = express();
+
+const expressLogger = (req: express.Request, res: express.Response, next: express.NextFunction) => {
+    logger.info(`Method: ${req.method}, url: ${req.originalUrl}`);
+    next();
+};
+
+app.use(expressLogger);
+app.use("/bus", busesRouter);
 
 app.listen("8080", () => {
     logger.info(`Listening on port ${port}`);
