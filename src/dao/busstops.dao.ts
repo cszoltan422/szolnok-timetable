@@ -13,6 +13,7 @@ export function getBusStops(busName: string, startStop: string): Promise<BusStop
                 resolve(busStops);
             }).catch((error) => {
                 logger.error(`Can\'t fetch busStops of bus [${busName}] and startStop [${startStop}]! Error: [${err}], data: [${data}]`);
+                error.code = error.code || 500;
                 reject(error);
             });
         });
@@ -28,6 +29,7 @@ export function getAllBusStops(busStopName: string): Promise<Array<BusStopWithBu
                 resolve(busStopsWithBuses);
             }).catch((error) => {
                 logger.error(`Can't fetch all buses for busStop=[${busStopName}]`);
+                error.code = error.code || 500;
                 reject(error);
             });
         });

@@ -12,6 +12,7 @@ export default function getTimeTableOfBusStop(busName: string, startStop: string
                 resolve(timetable);
             }).catch((error) => {
                 logger.error(`Can\'t fetch timetable of bus: [${busName}] from: [${startStop}] in busStop: [${busStop}] with occurrence: [${occurrence}]! Error: [${err}], data: [${data}]`);
+                error.code = error.code || 500;
                 reject(error);
             });
         });
