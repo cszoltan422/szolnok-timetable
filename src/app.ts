@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import logger from "./util/logger";
 import busesRouter from "./controller/bus.controller";
 import busStopsRouter from "./controller/busstops.controller";
+import timetableRouter from "./controller/timetable.controller";
 
 const username = process.env.MONGODB_USERNAME;
 const password = process.env.MONGODB_PASSWORD;
@@ -28,6 +29,7 @@ const expressLogger = (req: express.Request, res: express.Response, next: expres
 app.use(expressLogger);
 app.use("/bus", busesRouter);
 app.use("/busStop", busStopsRouter);
+app.use("/timetable", timetableRouter);
 
 app.listen("8080", () => {
     logger.info(`Listening on port ${port}`);

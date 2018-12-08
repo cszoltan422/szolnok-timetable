@@ -50,30 +50,50 @@ export function getAllBusesOfBusStop(err: any, data: any, query: string): Promis
     return new Promise((resolve, reject) => {
         if (err) {
             const returnObject = new ErrorObjectBuilder()
-            .setMessage("Bad request")
-            .setCode(400)
-            .setErr(err)
-            .setBusStop(query)
-            .build();
+                .setMessage("Bad request")
+                .setCode(400)
+                .setErr(err)
+                .setBusStop(query)
+                .build();
         reject(returnObject);
         return;
         }
         if (!data) {
             const returnObject = new ErrorObjectBuilder()
-            .setMessage("Not found")
-            .setCode(404)
-            .setErr("No data found!")
-            .setBusStop(query)
-            .build();
+                .setMessage("Not found")
+                .setCode(404)
+                .setErr("No data found!")
+                .setBusStop(query)
+                .build();
             reject(returnObject);
             return;
         }
         if (!query) {
             query = "";
         }
+        console.log(data);
         const filtered = data.filter((element: any) => element.busStopName.indexOf(query) + 1);
         resolve(filtered.map((e: any) => {
             const busStopName = e.busStopName;
+            const buses = e.buses;
+            return {busStopName, buses};
+        }));
+    });
+}
+
+export function getAllBusStopsWithBuses(err: any, data: any): Promise<Array<BusStopWithBusesResponse>> {
+    return new Promise((resolve, reject) => {
+        if (err || !data) {
+            const returnObject = new ErrorObjectBuilder()
+                .setMessage("Bad request")
+                .setCode(400)
+                .setErr(err)
+                .build();
+            reject(returnObject);
+            return;
+        }
+        resolve(data.map((e: any) => {
+            const busStopName = e.busStopNam
             const buses = e.buses;
             return {busStopName, buses};
         }));
