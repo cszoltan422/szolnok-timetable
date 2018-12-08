@@ -19,7 +19,7 @@ export function getBusStops(busName: string, startStop: string): Promise<BusStop
     });
 }
 
-export function getAllBusesOfBusStop(busStopName: string): Promise<Array<BusStopWithBusesResponse>> {
+export function getAllBusStops(busStopName: string): Promise<Array<BusStopWithBusesResponse>> {
     return new Promise((resolve, reject) => {
         logger.info(`Fetching all buses for busStop=[${busStopName}]`);
         BusStopWithBuses.find({}).select({"busStopName": 1, "buses": 1, "_id": 0}).exec((err: any, data: any) => {
@@ -33,19 +33,3 @@ export function getAllBusesOfBusStop(busStopName: string): Promise<Array<BusStop
         });
     });
 }
-
- export function getAllBusStopsWithBuses() : Promise<Array<BusStopWithBusesResponse>> {
-     return new Promise((resolve, reject) => {
-        logger.info(`Fetching all busStops with buses`);
-        BusStopWithBuses.find({}).select({"busStopName": 1, "buses": 1, "_id": 0}).exec((err: any, data: any) => {
-            console.log(data);
-            busStopsTransformer.getAllBusStopsWithBuses(err, data)
-            .then((busStopsWithBuses) => {
-                resolve(busStopsWithBuses);
-            }).catch((error) => {
-                logger.error(`Can't fetch all busStops with buses`);
-                reject(error);
-            });
-        });
-     });
- }

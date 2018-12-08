@@ -4,6 +4,10 @@ import { getBuses, getBusesByBusStop } from "./../dao/bus.dao";
 
 const busesRouter: express.Router = express.Router();
 
+/**
+ * Fetches all buses from database with optional query to match bus name
+ * @param q: <OPTIONAL> query param to narrow the buses
+ */
 busesRouter.get("/", (req: express.Request, res: express.Response) => {
     getBuses(req.query.q)
         .then((data: any) => {
@@ -15,7 +19,10 @@ busesRouter.get("/", (req: express.Request, res: express.Response) => {
             res.send(err);
         });
 });
-
+/**
+ * Fetches buses of one bus stop
+ * @param busStop: Name of bus stop for the buses stopping there
+ */
 busesRouter.get("/:busStop", (req: express.Request, res: express.Response) => {
     getBusesByBusStop(req.params.busStop)
         .then((data) => {

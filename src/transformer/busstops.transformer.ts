@@ -93,7 +93,7 @@ export function getAllBusStopsWithBuses(err: any, data: any): Promise<Array<BusS
             return;
         }
         resolve(data.map((e: any) => {
-            const busStopName = e.busStopNam
+            const busStopName = e.busStopName;
             const buses = e.buses;
             return {busStopName, buses};
         }));
