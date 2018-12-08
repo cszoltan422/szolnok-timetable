@@ -18,5 +18,5 @@ dockerTag=${timestamp}-${commitHash}
 echo $dockerTag
 sudo docker tag ${imageid} cszoltan422/szolnok-timetable:latest
 sudo docker tag ${imageid} cszoltan422/szolnok-timetable:${dockerTag}
-sudo docker push cszoltan422/szolnok-timetable
+sudo docker push cszoltan422/szolnok-timetable:latest
 sudo docker push cszoltan422/szolnok-timetable:${dockerTag}
