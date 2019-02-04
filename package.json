@@ -12,7 +12,8 @@
     "build:test": "jest --forceExit --coverage --verbose",
     "build:compile": "tsc",
     "build:docker": "./deploy/build-docker.sh",
-    "build": "npm run build:compile && npm run build:lint && npm run build:test && npm run build:docker"
+    "build": "npm run build:compile && npm run build:lint && npm run build:test && npm run build:docker",
+    "heroku-postbuild": "npm run build:compile" 
   },
   "repository": {
     "type": "git",
