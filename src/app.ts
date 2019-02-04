@@ -5,14 +5,10 @@ import busesRouter from "./controller/bus.controller";
 import busStopsRouter from "./controller/busstops.controller";
 import timetableRouter from "./controller/timetable.controller";
 
-const username = process.env.MONGODB_USERNAME;
-const password = process.env.MONGODB_PASSWORD;
-const host = process.env.MONGODB_HOST;
-const mongoPort = process.env.MONGODB_PORT;
-const db = process.env.MONGODB_DBNAME;
+const database_url = process.env.MONGODB_URL;
 const port = "8080";
 
-mongoose.connect(`mongodb://${username}:${password}@${host}:${mongoPort}/${db}`).then(() => {
+mongoose.connect(`${database_url}`).then(() => {
     logger.info("Successfully connected to database!");
   }, (err: mongoose.Error) => {
       logger.error(JSON.stringify(err));

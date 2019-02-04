@@ -17,7 +17,7 @@ const logger = winston.createLogger({
     level: "info",
     format: winston.format.combine(
         winston.format.timestamp({
-            format: timestampFormat
+            format: timestampFormat()
         }),
         logformat
     ),
