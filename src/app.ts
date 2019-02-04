@@ -6,7 +6,7 @@ import busStopsRouter from "./controller/busstops.controller";
 import timetableRouter from "./controller/timetable.controller";
 
 const database_url = process.env.MONGODB_URL;
-const port = "8080";
+const port = process.env.PORT || 8080;
 
 mongoose.connect(`${database_url}`).then(() => {
     logger.info("Successfully connected to database!");
@@ -27,6 +27,6 @@ app.use("/bus", busesRouter);
 app.use("/busStop", busStopsRouter);
 app.use("/timetable", timetableRouter);
 
-app.listen("8080", () => {
+app.listen(port, () => {
     logger.info(`Listening on port ${port}`);
 });
