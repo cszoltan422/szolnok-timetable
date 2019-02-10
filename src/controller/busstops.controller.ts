@@ -1,6 +1,6 @@
 import express from "express";
-import logger from "./../util/logger";
-
+import util from "util";
+import logger from "../util/logger";
 import { getBusStops, getAllBusStops } from "./../dao/busstops.dao";
 
 const busesRouter: express.Router = express.Router();
@@ -12,6 +12,7 @@ const busesRouter: express.Router = express.Router();
 busesRouter.route("/").get((req: express.Request, res: express.Response) => {
     getAllBusStops(req.query.q)
     .then((data) => {
+        logger.info(`Returning for ${req.originalUrl} : ${util.inspect(data, {depth: 1, maxArrayLength: 1})}`);
         res.statusCode = 200;
         res.send(data);
     }).catch((error) => {
@@ -28,9 +29,9 @@ busesRouter.route("/").get((req: express.Request, res: express.Response) => {
 busesRouter.route("/:routename").get((req: express.Request, res: express.Response) => {
     getBusStops(req.params.routename, req.query.startStop)
         .then((data) => {
+            logger.info(`Returning for ${req.originalUrl} : ${util.inspect(data, {depth: 1, maxArrayLength: 1})}`);
             res.statusCode = 200;
             res.send(data);
-            logger.info(`Payload for request=[${req.method} ${req.originalUrl}] : ${JSON.stringify(data)}`);
         }).catch((error) => {
             res.statusCode = error.code;
             res.send(error);

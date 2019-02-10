@@ -23,7 +23,7 @@ export function getBusStops(busName: string, startStop: string): Promise<BusStop
 export function getAllBusStops(busStopName: string): Promise<Array<BusStopWithBusesResponse>> {
     return new Promise((resolve, reject) => {
         logger.info(`Fetching all buses for busStop=[${busStopName}]`);
-        BusStopWithBuses.find({}).select({"busStopName": 1, "buses": 1, "_id": 0}).exec((err: any, data: any) => {
+        BusStopWithBuses.find({}).select({"busStopName": 1, "buses": 1, "_id": 0}).sort({busStopName: 1}).exec((err: any, data: any) => {
             busStopsTransformer.getAllBusesOfBusStop(err, data, busStopName)
             .then((busStopsWithBuses) => {
                 resolve(busStopsWithBuses);

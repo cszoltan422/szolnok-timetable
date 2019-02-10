@@ -71,7 +71,6 @@ export function getAllBusesOfBusStop(err: any, data: any, query: string): Promis
         if (!query) {
             query = "";
         }
-        console.log(data);
         const filtered = data.filter((element: any) => element.busStopName.indexOf(query) + 1);
         resolve(filtered.map((e: any) => {
             const busStopName = e.busStopName;
