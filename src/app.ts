@@ -4,6 +4,7 @@ import logger from "./util/logger";
 import busesRouter from "./controller/bus.controller";
 import busStopsRouter from "./controller/busstops.controller";
 import timetableRouter from "./controller/timetable.controller";
+import newsRouter from "./controller/news.controller";
 
 const database_url = process.env.MONGODB_URL;
 const port = process.env.PORT || 8080;
@@ -26,6 +27,7 @@ app.use(expressLogger);
 app.use("/bus", busesRouter);
 app.use("/busStop", busStopsRouter);
 app.use("/timetable", timetableRouter);
+app.use("/news", newsRouter);
 
 app.listen(port, () => {
     logger.info(`Listening on port ${port}`);

@@ -17,7 +17,7 @@
     "build:compile": "tsc",
     "build:docker": "./deploy/build-docker.sh",
     "build": "npm run build:compile && npm run build:lint && npm run build:test && npm run build:docker",
-    "heroku-postbuild": "npm run build:compile" 
+    "heroku-postbuild": "npm run build:compile"
   },
   "repository": {
     "type": "git",
