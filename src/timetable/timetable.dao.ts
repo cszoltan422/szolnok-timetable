@@ -1,7 +1,7 @@
 import Bus from "../bus/bus.model";
-import logger from "./../util/logger";
-import TimetableResponse from "./../response/timetable.response";
-import getTimetable from "./../transformer/timetable.transformer";
+import logger from "../util/logger";
+import TimetableResponse from "./timetable.response";
+import getTimetable from "../transformer/timetable.transformer";
 
 export default function getTimeTableOfBusStop(busName: string, startStop: string, busStop: string, occurrence: string): Promise<TimetableResponse> {
     return new Promise((resolve, reject) => {

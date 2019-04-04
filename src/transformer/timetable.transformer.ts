@@ -1,4 +1,4 @@
-import TimetableResponse from "./../response/timetable.response";
+import TimetableResponse from "../timetable/timetable.response";
 import ErrorObjectBuilder from "./../util/errorobject.builder";
 import * as startStopChecker from "./../util/startstop.checker";
 

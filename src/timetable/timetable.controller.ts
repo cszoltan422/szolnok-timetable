@@ -1,7 +1,7 @@
 import express from "express";
 import util from "util";
 import logger from "../util/logger";
-import getTimeTableOfBusStop from "./../dao/timetable.dao";
+import getTimeTableOfBusStop from "./timetable.dao";
 
 const timetableRouter = express.Router();
 
