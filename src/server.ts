@@ -1,12 +1,14 @@
 import express from "express";
 import mongoose from "mongoose";
 import logger from "./util/logger";
+import Controller from "./controller.interface";
 
 class Server {
     public app: express.Application;
 
-    constructor() {
+    constructor(controllers: Controller[]) {
         this.app = express();
+        this.initializeControllers(controllers);
     }
 
     public connectToDatabase(mongodbUrl: string) {
@@ -28,6 +30,12 @@ class Server {
         this.app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
             logger.info(`Method: ${req.method}, url: ${req.originalUrl}`);
             next();
+        });
+    }
+
+    private initializeControllers(controllers: Controller[]) {
+        controllers.forEach((controller) => {
+            this.app.use(controller.path, controller.router);
         });
     }
 }
