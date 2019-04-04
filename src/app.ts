@@ -10,4 +10,4 @@ const server = new Server([
 
 server.connectToDatabase(mongodbUrl);
 server.addLogging();
-server.startApplication(port);
+server.startServer(port);

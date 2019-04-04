@@ -20,7 +20,7 @@ class Server {
         );
     }
 
-    public startApplication(port: string) {
+    public startServer(port: string) {
         this.app.listen(port, () => {
             logger.info(`Listening on port ${port}`);
             });
