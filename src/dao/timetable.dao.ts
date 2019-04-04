@@ -1,4 +1,4 @@
-import Bus from "./../model/bus.model";
+import Bus from "../bus/bus.model";
 import logger from "./../util/logger";
 import TimetableResponse from "./../response/timetable.response";
 import getTimetable from "./../transformer/timetable.transformer";

@@ -1,7 +1,7 @@
-import Bus from "./../model/bus.model";
-import BusResponse from "./../response/bus.response";
-import logger from "./../util/logger";
-import ErrorObjectBuilder from "./../util/errorobject.builder";
+import Bus from "./bus.model";
+import BusResponse from "./bus.response";
+import logger from "../util/logger";
+import ErrorObjectBuilder from "../util/errorobject.builder";
 
 export function getBuses(query: String): Promise<Array<BusResponse>> {
     return new Promise((resolve, reject) => {

@@ -1,4 +1,4 @@
-import Bus from "./../model/bus.model";
+import Bus from "../bus/bus.model";
 import BusStopWithBuses from "./../model/busStopsWithBuses.model";
 import { BusStopsResponse, BusStopWithBusesResponse } from "./../response/busstop.response";
 import logger from "./../util/logger";
