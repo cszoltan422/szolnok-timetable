@@ -2,7 +2,7 @@
 import express from "express";
 import util from "util";
 import logger from "../util/logger";
-import { getNews } from "./../dao/news.dao";
+import { getNews } from "./news.dao";
 
 
 const newsRouter = express.Router();

@@ -1,7 +1,7 @@
-import News from "./../model/news.model";
-import NewsResponse from "./../response/news.response";
-import logger from "./../util/logger";
-import ErrorObjectBuilder from "./../util/errorobject.builder";
+import News from "./news.model";
+import NewsResponse from "./news.response";
+import logger from "../util/logger";
+import ErrorObjectBuilder from "../util/errorobject.builder";
 
 export function getNews(): Promise<Array<NewsResponse>> {
     return new Promise((resolve, reject) => {

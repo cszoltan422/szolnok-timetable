@@ -4,7 +4,7 @@ import logger from "./util/logger";
 import busesRouter from "./bus/bus.controller";
 import busStopsRouter from "./stop/busstops.controller";
 import timetableRouter from "./timetable/timetable.controller";
-import newsRouter from "./controller/news.controller";
+import newsRouter from "./news/news.controller";
 
 const database_url = process.env.MONGODB_URL;
 const port = process.env.PORT || 8080;
