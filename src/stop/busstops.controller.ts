@@ -1,7 +1,7 @@
 import express from "express";
 import util from "util";
 import logger from "../util/logger";
-import { getBusStops, getAllBusStops } from "./../dao/busstops.dao";
+import { getBusStops, getAllBusStops } from "./busstops.dao";
 
 const busesRouter: express.Router = express.Router();
 

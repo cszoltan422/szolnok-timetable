@@ -1,4 +1,4 @@
-import { BusStopsResponse, BusStopWithBusesResponse } from "./../response/busstop.response";
+import { BusStopsResponse, BusStopWithBusesResponse } from "../stop/busstop.response";
 import ErrorObjectBuilder from "./../util/errorobject.builder";
 import * as startStopChecker from "./../util/startstop.checker";
 

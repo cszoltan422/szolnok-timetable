@@ -1,8 +1,8 @@
 import Bus from "../bus/bus.model";
-import BusStopWithBuses from "./../model/busStopsWithBuses.model";
-import { BusStopsResponse, BusStopWithBusesResponse } from "./../response/busstop.response";
-import logger from "./../util/logger";
-import * as busStopsTransformer from "./../transformer/busstops.transformer";
+import BusStopWithBuses from "./busStopsWithBuses.model";
+import { BusStopsResponse, BusStopWithBusesResponse } from "./busstop.response";
+import logger from "../util/logger";
+import * as busStopsTransformer from "../transformer/busstops.transformer";
 
 export function getBusStops(busName: string, startStop: string): Promise<BusStopsResponse> {
     return new Promise((resolve, reject) => {

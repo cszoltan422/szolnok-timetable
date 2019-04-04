@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import logger from "./util/logger";
 import busesRouter from "./bus/bus.controller";
-import busStopsRouter from "./controller/busstops.controller";
+import busStopsRouter from "./stop/busstops.controller";
 import timetableRouter from "./controller/timetable.controller";
 import newsRouter from "./controller/news.controller";
 
